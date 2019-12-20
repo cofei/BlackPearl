@@ -7,7 +7,13 @@
 
 #include <stdio.h>
 
+#include "include/exception.h"
+
+
 int main() {
-   printf("Hello World!");
+   printf("Hello World!\n");
+
+   ex_print(88);
+
    return 0;
 }

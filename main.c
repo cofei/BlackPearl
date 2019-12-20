@@ -2,7 +2,7 @@
  * main.c
  *
  *  Created on: Dec 19, 2019
- *      Author: I074360
+ *      Author: Markus Kang
  */
 
 #include <stdio.h>

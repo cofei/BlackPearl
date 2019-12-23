@@ -11,9 +11,17 @@
 
 
 int main() {
-   printf("Hello World!\n");
+   //printf("Hello World!\n");
 
-   ex_print(88);
+   if(ex_handle(JMPBUF, 0, 0))
+   {
+	   printf("Back in main()\n");
+   }
+   else
+   {
+	   printf("First time through\n");
+	   ex_case1();
+   }
 
    return 0;
 }

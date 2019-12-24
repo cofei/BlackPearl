@@ -8,20 +8,13 @@
 #include <stdio.h>
 
 #include "include/exception.h"
+#include "include/varargs.h"
 
 
 int main() {
-   //printf("Hello World!\n");
 
-   if(ex_handle(JMPBUF, 0, 0))
-   {
-	   printf("Back in main()\n");
-   }
-   else
-   {
-	   printf("First time through\n");
-	   ex_case1();
-   }
+	va_listargs(3, 1,2,3);
+	va_listargs(6, 5,6,7,8,9,10);
 
    return 0;
 }

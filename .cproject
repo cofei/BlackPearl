@@ -29,39 +29,45 @@
             			
             <storageModule moduleId="cdtBuildSystem" version="4.0.0">
                 				
-                <configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cygwin.exe.debug.53754664" name="Debug" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=" parent="cdt.managedbuild.config.gnu.cygwin.exe.debug">
+                <configuration artifactName="${ProjName}" buildArtefactType="org.eclipse.cdt.build.core.buildArtefactType.exe" buildProperties="org.eclipse.cdt.build.core.buildArtefactType=org.eclipse.cdt.build.core.buildArtefactType.exe,org.eclipse.cdt.build.core.buildType=org.eclipse.cdt.build.core.buildType.debug" cleanCommand="rm -rf" description="" id="cdt.managedbuild.config.gnu.cygwin.exe.debug.53754664" name="Debug" optionalBuildProperties="org.eclipse.cdt.docker.launcher.containerbuild.property.selectedvolumes=,org.eclipse.cdt.docker.launcher.containerbuild.property.volumes=" parent="cdt.managedbuild.config.gnu.cygwin.exe.debug">
                     					
                     <folderInfo id="cdt.managedbuild.config.gnu.cygwin.exe.debug.53754664." name="/" resourcePath="">
                         						
-                        <toolChain id="cdt.managedbuild.toolchain.gnu.cygwin.exe.debug.37870310" name="Cygwin GCC" superClass="cdt.managedbuild.toolchain.gnu.cygwin.exe.debug" unusedChildren="cdt.managedbuild.tool.gnu.assembler.cygwin.exe.debug">
+                        <toolChain id="cdt.managedbuild.toolchain.gnu.cygwin.base.2133608954" name="Cygwin GCC" superClass="cdt.managedbuild.toolchain.gnu.cygwin.base">
                             							
-                            <targetPlatform id="cdt.managedbuild.target.gnu.platform.cygwin.exe.debug.2129315507" name="Debug Platform" superClass="cdt.managedbuild.target.gnu.platform.cygwin.exe.debug"/>
+                            <targetPlatform archList="all" binaryParser="org.eclipse.cdt.core.Cygwin_PE64" id="cdt.managedbuild.target.gnu.platform.cygwin.base.663156518" name="Debug Platform" osList="win32" superClass="cdt.managedbuild.target.gnu.platform.cygwin.base"/>
                             							
-                            <builder buildPath="${workspace_loc:/BlackPearl}/Debug" id="cdt.managedbuild.target.gnu.builder.cygwin.exe.debug.1875019253" keepEnvironmentInBuildfile="false" managedBuildOn="true" name="Gnu Make Builder" superClass="cdt.managedbuild.target.gnu.builder.cygwin.exe.debug"/>
+                            <builder buildPath="${workspace_loc:/BlackPearl}/Debug" id="cdt.managedbuild.target.gnu.builder.cygwin.base.2022688084" name="Gnu Make Builder.Debug" superClass="cdt.managedbuild.target.gnu.builder.cygwin.base"/>
                             							
-                            <tool id="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.exe.debug.512590270" name="Cygwin C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.exe.debug"/>
-                            							
-                            <tool id="cdt.managedbuild.tool.gnu.archiver.cygwin.base.452846462" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.cygwin.base"/>
-                            							
-                            <tool id="cdt.managedbuild.tool.gnu.cross.assembler.76895794" name="Cross GCC Assembler" superClass="cdt.managedbuild.tool.gnu.cross.assembler">
+                            <tool id="cdt.managedbuild.tool.gnu.assembler.cygwin.base.1269623071" name="GCC Assembler" superClass="cdt.managedbuild.tool.gnu.assembler.cygwin.base">
                                 								
-                                <inputType id="cdt.managedbuild.tool.gnu.assembler.input.789854162" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
+                                <inputType id="cdt.managedbuild.tool.gnu.assembler.input.790731555" superClass="cdt.managedbuild.tool.gnu.assembler.input"/>
                                 							
                             </tool>
                             							
-                            <tool id="cdt.managedbuild.tool.gnu.c.compiler.cygwin.exe.debug.1443433435" name="Cygwin C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.cygwin.exe.debug">
+                            <tool id="cdt.managedbuild.tool.gnu.archiver.cygwin.base.2123814200" name="GCC Archiver" superClass="cdt.managedbuild.tool.gnu.archiver.cygwin.base"/>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base.1424774354" name="Cygwin C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.base">
                                 								
-                                <option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.cygwin.exe.debug.option.optimization.level.1591798357" name="Optimization Level" superClass="gnu.c.compiler.cygwin.exe.debug.option.optimization.level" useByScannerDiscovery="false" valueType="enumerated"/>
+                                <option id="gnu.cpp.compiler.option.optimization.level.1374464928" superClass="gnu.cpp.compiler.option.optimization.level" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
                                 								
-                                <option defaultValue="gnu.c.debugging.level.max" id="gnu.c.compiler.cygwin.exe.debug.option.debugging.level.1607475807" name="Debug Level" superClass="gnu.c.compiler.cygwin.exe.debug.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
-                                								
-                                <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.cygwin.334101501" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.cygwin"/>
+                                <option defaultValue="gnu.cpp.compiler.debugging.level.max" id="gnu.cpp.compiler.option.debugging.level.1959258158" superClass="gnu.cpp.compiler.option.debugging.level" valueType="enumerated"/>
                                 							
                             </tool>
                             							
-                            <tool id="cdt.managedbuild.tool.gnu.c.linker.cygwin.exe.debug.1750470077" name="Cygwin C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.cygwin.exe.debug">
+                            <tool id="cdt.managedbuild.tool.gnu.c.compiler.cygwin.base.1768033952" name="Cygwin C Compiler" superClass="cdt.managedbuild.tool.gnu.c.compiler.cygwin.base">
                                 								
-                                <inputType id="cdt.managedbuild.tool.gnu.c.linker.input.553735341" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
+                                <option defaultValue="gnu.c.optimization.level.none" id="gnu.c.compiler.option.optimization.level.25102329" superClass="gnu.c.compiler.option.optimization.level" valueType="enumerated"/>
+                                								
+                                <option defaultValue="gnu.c.debugging.level.max" id="gnu.c.compiler.option.debugging.level.195586495" superClass="gnu.c.compiler.option.debugging.level" valueType="enumerated"/>
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.c.compiler.input.cygwin.1928981976" superClass="cdt.managedbuild.tool.gnu.c.compiler.input.cygwin"/>
+                                							
+                            </tool>
+                            							
+                            <tool id="cdt.managedbuild.tool.gnu.c.linker.cygwin.base.1493963131" name="Cygwin C Linker" superClass="cdt.managedbuild.tool.gnu.c.linker.cygwin.base">
+                                								
+                                <inputType id="cdt.managedbuild.tool.gnu.c.linker.input.1719643849" superClass="cdt.managedbuild.tool.gnu.c.linker.input">
                                     									
                                     <additionalInput kind="additionalinputdependency" paths="$(USER_OBJS)"/>
                                     									
@@ -71,13 +77,7 @@
                                 							
                             </tool>
                             							
-                            <tool id="cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.exe.debug.1768948093" name="Cygwin C++ Compiler" superClass="cdt.managedbuild.tool.gnu.cpp.compiler.cygwin.exe.debug">
-                                								
-                                <option id="gnu.cpp.compiler.cygwin.exe.debug.option.optimization.level.872564603" name="Optimization Level" superClass="gnu.cpp.compiler.cygwin.exe.debug.option.optimization.level" useByScannerDiscovery="false" value="gnu.cpp.compiler.optimization.level.none" valueType="enumerated"/>
-                                								
-                                <option defaultValue="gnu.cpp.compiler.debugging.level.max" id="gnu.cpp.compiler.cygwin.exe.debug.option.debugging.level.1629846566" name="Debug Level" superClass="gnu.cpp.compiler.cygwin.exe.debug.option.debugging.level" useByScannerDiscovery="false" valueType="enumerated"/>
-                                							
-                            </tool>
+                            <tool id="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.base.2117419919" name="Cygwin C++ Linker" superClass="cdt.managedbuild.tool.gnu.cpp.linker.cygwin.base"/>
                             						
                         </toolChain>
                         					

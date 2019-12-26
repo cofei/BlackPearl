@@ -13,9 +13,9 @@ void *mt_add(void *threadid);
 #define NUM_THREADS 4
 
 int MT_START, MT_NOW, MT_END;
-long MT_SUM;
+long long MT_SUM;
 
-pthread_mutex_t NOW_T;
+pthread_mutex_t NOW_LOCK;
 
 void *mt_print(void *threadid)
 {
@@ -29,12 +29,20 @@ void *mt_add(void *threadid)
 {
 	int i = MT_NOW;
 	printf("Thread #%d: Hello MT_NOW = %d! \n", (int)threadid, MT_NOW);
-	while (i <= MT_END)
+	if (MT_NOW > MT_END)
 	{
-		pthread_mutex_lock(&NOW_T);
-		if (MT_NOW > MT_END)
+		printf("Thread #%d: BYE MT_NOW = %d!\n", (int)threadid, MT_NOW);
+		pthread_exit(NULL);
+	}
+
+	i = MT_NOW;
+	while (1)
+	{
+		pthread_mutex_lock(&NOW_LOCK);
+		if ((MT_NOW > MT_END)
+				|| (i > MT_END))
 		{
-			pthread_mutex_unlock(&NOW_T);
+			pthread_mutex_unlock(&NOW_LOCK);
 			break;
 		}
 
@@ -42,7 +50,7 @@ void *mt_add(void *threadid)
 		MT_NOW++;
 		i++;
 
-		pthread_mutex_unlock(&NOW_T);
+		pthread_mutex_unlock(&NOW_LOCK);
 
 	}
 
@@ -84,12 +92,14 @@ void mt_sample2()
 
 	MT_SUM = 0;
 	MT_NOW = 1;
-	MT_END = 10000;
+	MT_END = 1000000;
+
+	pthread_mutex_init (&NOW_LOCK,NULL);
 
 	for (i = 0; i < NUM_THREADS; i ++)
 	{
 		printf("Thread #%d: creating...\n", i);
-		rc = pthread_create(&threads[i], NULL, mt_add, (void *)i);
+		rc = pthread_create(&threads[i], NULL, (void *)&mt_add, (void *)i);
 		if (rc)
 		{
 			printf("Thread #%d: Error:unable to create.\n", rc);
@@ -104,6 +114,6 @@ void mt_sample2()
 	}
 
 
-	printf("sum = %ld\n",MT_SUM);
+	printf("sum = %lld\n",MT_SUM);
 
 }

@@ -9,7 +9,7 @@
 #include "../../include/exception.h"
 
 int
-ex_handle(jmp_buf jmpbuf, int major, int minor)
+ex_handle(jmp_buf jmpbuf)
 {
 	int jmpret;
 	jmpret = setjmp(jmpbuf);
@@ -21,17 +21,28 @@ int
 ex_print(int errno)
 {
 	printf("Error No. is %d\n", errno);
-	return 0;
+	longjmp(JMPBUF, errno);
+	return errno;
 }
 
 
-// Example
+// Example 1
 
-void ex_case1()
+void ex_sample1()
 {
-	printf("I'm in ex_case1().\n");
-	longjmp(JMPBUF, 1);
+	jmp_buf env;
+	int i;
+	i = setjmp(env);
 
-	printf("You should never see this because I long jumped!\n");
+	printf("i = %d\n", i);
+	if (i != 0)
+	{
+		exit(0);
+	}
+
+	longjmp(env, 2);
+
+	printf("Does this line get printed?\n");
+
 }
 

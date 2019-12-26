@@ -9,12 +9,13 @@
 
 #include "include/exception.h"
 #include "include/varargs.h"
-
+#include "include/multithreads.h"
 
 int main() {
 
-	va_listargs(3, 1,2,3);
-	va_listargs(6, 5,6,7,8,9,10);
 
-   return 0;
+	printf("start mt_sample2()\n");
+	mt_sample2();
+	printf("end mt_sample2()\n");
+	return 0;
 }

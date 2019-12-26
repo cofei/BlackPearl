@@ -11,11 +11,13 @@
 #endif /* INCLUDE_EXCEPTION_H_ */
 
 #include <stdio.h>
+#include <stdlib.h>
 #include <setjmp.h>
 
 jmp_buf JMPBUF;
 
-int ex_handle(jmp_buf, int, int);
+int ex_handle(jmp_buf);
 int ex_print(int);
-void ex_case1();
+
+void ex_sample1();
 

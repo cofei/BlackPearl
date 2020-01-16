@@ -14,9 +14,11 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include <pthread.h>
 
 
 
 void mt_sample1();
 void mt_sample2();
+void mt_sample3();

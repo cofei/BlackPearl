@@ -9,9 +9,12 @@
 
 void *mt_print(void *threadid);
 void *mt_add(void *threadid);
+void *mt_display(int isEnd);
 
-#define NUM_THREADS 4
+#define NUM_THREADS		4
+#define STR_LENGTH		20
 
+char *STR_BUF, *STR_START, *STR_END;
 int MT_START, MT_NOW, MT_END;
 long long MT_SUM;
 
@@ -27,20 +30,10 @@ void *mt_print(void *threadid)
 
 void *mt_add(void *threadid)
 {
-	int i = MT_NOW;
-	printf("Thread #%d: Hello MT_NOW = %d! \n", (int)threadid, MT_NOW);
-	if (MT_NOW > MT_END)
-	{
-		printf("Thread #%d: BYE MT_NOW = %d!\n", (int)threadid, MT_NOW);
-		pthread_exit(NULL);
-	}
-
-	i = MT_NOW;
-	while (1)
+	while (MT_NOW <= MT_END)
 	{
 		pthread_mutex_lock(&NOW_LOCK);
-		if ((MT_NOW > MT_END)
-				|| (i > MT_END))
+		if ((MT_NOW > MT_END))
 		{
 			pthread_mutex_unlock(&NOW_LOCK);
 			break;
@@ -48,18 +41,50 @@ void *mt_add(void *threadid)
 
 		MT_SUM += MT_NOW;
 		MT_NOW++;
-		i++;
 
 		pthread_mutex_unlock(&NOW_LOCK);
-
 	}
 
 	printf("Thread #%d: BYE MT_NOW = %d!\n", (int)threadid, MT_NOW);
 	pthread_exit(NULL);
-
 }
 
+void *mt_display(int isEnd)
+{
+	int		str_len = strlen(STR_BUF);
 
+	STR_START = STR_BUF;
+	STR_END = STR_BUF+(str_len -1);
+
+	while (!isEnd)
+	{
+		STR_START = STR_BUF;
+		STR_END = STR_BUF+(str_len -1);
+
+		if (str_len >= STR_LENGTH)
+		{
+			//pthread_mutex_lock(&NOW_LOCK);
+			printf("%s\n", STR_START);
+			//pthread_mutex_unlock(&NOW_LOCK);
+		}
+		else
+		{
+			continue;
+		}
+	}
+
+	if (isEnd)
+	{
+		//pthread_mutex_lock(&NOW_LOCK);
+		printf("%s\n", STR_START);
+		//pthread_mutex_unlock(&NOW_LOCK);
+	}
+
+	printf("Thread # BYE!\n");
+	//pthread_exit(NULL);
+
+	return NULL;
+}
 
 // Example 1
 void mt_sample1()
@@ -81,7 +106,6 @@ void mt_sample1()
 
 	pthread_exit(NULL);
 }
-
 
 // Example 2
 void mt_sample2()
@@ -115,5 +139,37 @@ void mt_sample2()
 
 
 	printf("sum = %lld\n",MT_SUM);
+
+}
+
+// Example 3
+void mt_sample3()
+{
+	//pthread_t	thread_id;
+	//int			rc;
+
+	STR_BUF = (char *)malloc(sizeof(char)* (STR_LENGTH + 1));
+	(void) memset((void*)(STR_BUF), 0, (STR_LENGTH + 1));
+
+	/*
+	pthread_mutex_init (&NOW_LOCK,NULL);
+
+	printf("Thread #0: creating...\n");
+	rc = pthread_create(&thread_id, NULL, (void *)&mt_display, NULL);
+	if (rc)
+	{
+		printf("Thread #: Error:unable to create.\n", rc);
+		exit(-1);
+	}
+	*/
+
+	sprintf(STR_BUF, "%s", "TEST CASE 3 AAAAAAAAAAAAAAAAAAAAAA");
+	mt_display(1);
+
+	/*
+	printf("Thread #0: Waiting...\n");
+	pthread_join(thread_id, NULL);
+	*/
+
 
 }

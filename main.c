@@ -8,14 +8,18 @@
 #include <stdio.h>
 
 #include "include/exception.h"
+#include "include/memgr.h"
 #include "include/varargs.h"
 #include "include/multithreads.h"
 
-int main() {
+int main()
+{
+	printf("START... main()\n");
+	me_case1();
+	me_case2();
+	me_case3();
+	me_case4();
 
-
-	printf("start mt_sample2()\n");
-	mt_sample2();
-	printf("end mt_sample2()\n");
+	printf("END... main()\n");
 	return 0;
 }
